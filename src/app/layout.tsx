@@ -1,3 +1,4 @@
+import { Analytics } from "@vercel/analytics/next";
 import type { Metadata } from "next";
 import "./globals.css";
 
@@ -16,6 +17,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           <p>Erosão costeira no litoral de Sergipe</p>
         </header>
         {children}
+        <Analytics />
       </body>
     </html>
   );
