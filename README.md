@@ -23,7 +23,7 @@ O CostaViva junta num mapa as zonas críticas apontadas pela literatura e, nas p
 | Mapa | Leaflet + react-leaflet, tiles do OpenStreetMap |
 | Validação | zod |
 | Testes | Vitest |
-| Pacotes | pnpm 10, Node 24 |
+| Pacotes | pnpm 12, Node 24 |
 | CI | GitHub Actions (lint, typecheck, test, build) |
 
 ## Como rodar
