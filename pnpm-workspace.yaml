@@ -1,0 +1,9 @@
+# Evita symlinks no Windows (ERR_PNPM_PACKAGE_MANAGER_SYMLINK_FAILED / Acesso negado).
+# Desde o pnpm 11 esta opção não é mais lida do .npmrc.
+nodeLinker: hoisted
+
+# O pnpm 12 falha o install se um script de build não for aprovado nem negado.
+# Os dois só verificam binários nativos que já chegam pelas dependências opcionais.
+allowBuilds:
+  esbuild: false
+  unrs-resolver: false
