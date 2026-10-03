@@ -8,7 +8,9 @@ export const metadata: Metadata = {
     "Monitoramento participativo da erosão costeira no litoral de Sergipe: mapa de zonas críticas e relatos geolocalizados.",
 };
 
-export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+export default function RootLayout({
+  children,
+}: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="pt-BR">
       <body>

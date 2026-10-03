@@ -14,6 +14,9 @@ const packageJson = JSON.parse(readProjectFile("package.json")) as {
   packageManager?: string;
   engines?: { pnpm?: string };
 };
+const tsconfig = JSON.parse(readProjectFile("tsconfig.json")) as {
+  compilerOptions?: { noUncheckedSideEffectImports?: boolean };
+};
 
 function extractStep(source: string, uses: string): string {
   const lines = source.split(/\r?\n/);
@@ -58,5 +61,13 @@ describe("configuração do pnpm", () => {
     const npmrcPath = path.join(root, ".npmrc");
     const npmrc = existsSync(npmrcPath) ? readFileSync(npmrcPath, "utf8") : "";
     expect(npmrc).not.toMatch(/^\s*node-linker\s*=/m);
+  });
+});
+
+describe("configuração do TypeScript", () => {
+  // O TypeScript 6 liga essa opção por padrão e o Next 15 só declara tipos para *.module.css,
+  // então imports como "./globals.css" passariam a dar erro no editor e em futuras versões do tsc.
+  it("desliga noUncheckedSideEffectImports explicitamente", () => {
+    expect(tsconfig.compilerOptions?.noUncheckedSideEffectImports).toBe(false);
   });
 });
