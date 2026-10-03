@@ -19,10 +19,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v5
 
+      # A versão vem do "packageManager" do package.json; informar "version" aqui faz a action falhar.
       - name: Setup pnpm
         uses: pnpm/action-setup@v6
-        with:
-          version: 10
 
       - name: Setup Node.js
         uses: actions/setup-node@v5
